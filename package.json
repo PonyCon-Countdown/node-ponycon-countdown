@@ -1,0 +1,25 @@
+{
+  "name": "ponycon-countdown",
+  "version": "1.0.0",
+  "description": "A node.js module for interfacing with the PonyCon Countdown API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PonyCon-Countdown/node-ponycon-countdown.git"
+  },
+  "keywords": [
+    "pony",
+    "brony",
+    "countdown",
+    "convention"
+  ],
+  "author": "PonyCon Countdown",
+  "license": "SEE LICENCE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/PonyCon-Countdown/node-ponycon-countdown/issues"
+  },
+  "homepage": "https://ponycon.info"
+}
