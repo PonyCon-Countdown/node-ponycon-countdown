@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/PonyCon-Countdown/node-ponycon-countdown/issues"
   },
-  "homepage": "https://ponycon.info"
+  "homepage": "https://ponycon.info",
+  "dependencies": {
+    "superagent": "^6.1.0"
+  }
 }
