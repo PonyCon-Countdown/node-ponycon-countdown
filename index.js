@@ -35,49 +35,49 @@ class Convention extends PartialConvention {
     }
 }
 
-async function getConvention(id) {
-    request.get(URL + `con/${id}`)
-        .send()
-        .then(res => {
-            return new Convention(res.body);
-        })
-        .catch(error => {
-            throw error;
-        });
+function getConvention(id) {
+    return new Promise((res, rej) => {
+        request.get(URL + `con/${id}`)
+            .send()
+            .then(res => {
+                res(new Convention(res.body));
+            })
+            .catch(rej);
+    });
 }
 
-async function getConventions() {
-    request.get(URL + `con/all`)
-        .send()
-        .then(res => {
-            let payload = [];
+function getConventions() {
+    return new Promise((res, rej) => {
+        request.get(URL + `con/all`)
+            .send()
+            .then(res => {
+                let payload = [];
 
-            res.body.forEach(con => {
-                payload.push(new PartialConvention(con));
-            });
+                res.body.forEach(con => {
+                    payload.push(new PartialConvention(con));
+                });
 
-            return payload;
-        })
-        .catch(error => {
-            throw error;
-        });
+                res(payload);
+            })
+            .catch(rej);
+    });
 }
 
-async function search(query) {
-    request.get(URL + `con/search/${query}`)
-        .send()
-        .then(res => {
-            let payload = [];
+function search(query) {
+    return new Promise((res, rej) => {
+        request.get(URL + `con/search/${query}`)
+            .send()
+            .then(res => {
+                let payload = [];
 
-            res.body.forEach(con => {
-                payload.push(new PartialConvention(con));
-            });
+                res.body.forEach(con => {
+                    payload.push(new PartialConvention(con));
+                });
 
-            return payload;
-        })
-        .catch(error => {
-            throw error;
-        });
+                res(payload);
+            })
+            .catch(rej);
+    });
 }
 
 exports.getConvention = getConvention;
