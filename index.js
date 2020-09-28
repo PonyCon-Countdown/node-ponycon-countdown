@@ -39,8 +39,8 @@ function getConvention(id) {
     return new Promise((res, rej) => {
         request.get(URL + `con/${id}`)
             .send()
-            .then(res => {
-                res(new Convention(res.body));
+            .then(result => {
+                res(new Convention(result.body));
             })
             .catch(rej);
     });
@@ -50,10 +50,10 @@ function getConventions() {
     return new Promise((res, rej) => {
         request.get(URL + `con/all`)
             .send()
-            .then(res => {
+            .then(result => {
                 let payload = [];
 
-                res.body.forEach(con => {
+                result.body.forEach(con => {
                     payload.push(new PartialConvention(con));
                 });
 
@@ -67,10 +67,10 @@ function search(query) {
     return new Promise((res, rej) => {
         request.get(URL + `con/search/${query}`)
             .send()
-            .then(res => {
+            .then(result => {
                 let payload = [];
 
-                res.body.forEach(con => {
+                result.body.forEach(con => {
                     payload.push(new PartialConvention(con));
                 });
 
